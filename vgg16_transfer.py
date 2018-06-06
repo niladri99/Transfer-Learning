@@ -64,7 +64,7 @@ last_layer = model.get_layer('block2_pool').output
 out = Dense(num_classes, activation='softmax', name='output')(last_layer)
 custom_vgg_model = Model(image_input, out)
 custom_vgg_model.summary()
-for layer in custom_inception_model.layers[0:7]:
+for layer in custom_vgg_model.layers[0:8]:
     layer.trainable = False
 custom_vgg_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
