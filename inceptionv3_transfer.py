@@ -41,7 +41,7 @@ print (img_data.shape)
 
 
 # Define the number of classes
-num_classes = #add no. of classes
+num_classes = 2
 num_of_samples = img_data.shape[0]
 labels = np.ones((num_of_samples,),dtype='int64')
 
@@ -72,8 +72,6 @@ custom_inception_model.summary()
 
 for layer in custom_inception_model.layers[0:40]:
     layer.trainable = False
-
-custom_inception_model.layers[3].trainable
 
 custom_inception_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
