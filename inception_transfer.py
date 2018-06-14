@@ -17,7 +17,6 @@ PATH = os.getcwd()
 # Define data path
 data_path = PATH + '/data'
 data_dir_list = os.listdir(data_path)
-
 img_data_list=[]
 
 for dataset in data_dir_list:
@@ -29,7 +28,6 @@ for dataset in data_dir_list:
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
         x = preprocess_input(x)
-#       x = x/255
         print('Input image shape:', x.shape)
         img_data_list.append(x)
 
@@ -43,12 +41,12 @@ print (img_data.shape)
 
 
 # Define the number of classes
-num_classes = #add no.
+num_classes = #add no. of classes
 num_of_samples = img_data.shape[0]
 labels = np.ones((num_of_samples,),dtype='int64')
 
-labels[0:1]=0#label it
-labels[1:1]=1
+labels[0:100]=0#label it
+labels[101:200]=1
 
 names = ['']
 
@@ -91,7 +89,6 @@ print("[INFO] loss={:.4f}, accuracy: {:.4f}%".format(loss,accuracy * 100))
 
 ####################################################################################################################
 
-#%%
 import matplotlib.pyplot as plt
 # visualizing losses and accuracy
 train_loss=hist.history['loss']
