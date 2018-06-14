@@ -35,7 +35,7 @@ for dataset in data_dir_list:
 
 
 # Define the number of classes
-num_classes = #add no. of class
+num_classes = 2
 num_of_samples = img_data.shape[0]
 labels = np.ones((num_of_samples,),dtype='int64')
 
@@ -63,7 +63,7 @@ last_layer = model.get_layer('block2_pool').output
 out = Dense(num_classes, activation='softmax', name='output')(last_layer)
 custom_vgg_model = Model(image_input, out)
 custom_vgg_model.summary()
-for layer in custom_vgg_model.layers[0:8]:
+for layer in custom_vgg_model.layers[0:8]: #Make layers trainable
     layer.trainable = False
 custom_vgg_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
